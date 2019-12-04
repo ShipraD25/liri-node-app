@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 var Spotify = require('node-spotify-api');
 var keys = require("./key.js");
 const axios = require('axios');
@@ -74,6 +75,9 @@ function song() {
 
 
     var spotify = new Spotify(keys.spotify);
+    if (topic === "") {
+        topic = "The Sign by Ace of Base"
+    };
 
     spotify.search({ type: 'track', query: topic }, function(err, data) {
         if (err) {
@@ -89,11 +93,13 @@ function song() {
 
 function movie() {
 
-
+    if (topic === "") {
+        topic = "Mr.Nobody"
+    };
     // We then run the request with axios module on a URL with a JSON
     axios.get("http://www.omdbapi.com/?t=" + topic + "&y=&plot=short&apikey=trilogy").then(
         function(response) {
-            // Then we print out the imdbRating
+            console.log("***********Movie Info***********");
             console.log("The movie's rating on imdb is: " + response.data.imdbRating);
             console.log("Title of the movie is:" + response.data.Title);
             console.log("Year the movie came out is:" + response.data.Year);
@@ -106,17 +112,6 @@ function movie() {
         }
     );
 
-    // console.log(axios);
-
-    //is like...
-    // var axios = {
-    // 	name: "axios",
-    // 	get: function(){
-    // 		//does some work
-    // 	}
-    // }
-
-    // axios.get(//)
 
 
 
