@@ -53,10 +53,10 @@ function concert() {
             //console.log(response);
             for (var i = 0; i < response.data.length; i++) {
 
-                console.log(response.data[i].venue.name);
-                console.log(response.data[i].venue.city);
-                console.log(response.data[i].venue.country);
-                console.log(response.data[i].datetime);
+                console.log("Name of the Venue: " + response.data[i].venue.name);
+                console.log("Location Of the Venue: " + response.data[i].venue.city);
+                // console.log(response.data[i].venue.country);
+                console.log("Date of the event: " + response.data[i].datetime);
                 console.log("---------------------------------");
                 //  console.log(`At ${response.data[i].venue.name} in ${response.data[i].venue.city} - ${response.data[i].venue.country} in ${response.data[i].datetime}`)
                 //  console.log("---------------------------------")
@@ -84,8 +84,8 @@ function song() {
         }
         for (var i = 0; i < data.tracks.items.length; i++) {
 
-            console.log(`Song name: ${data.tracks.items[i].name}\nurl: ${data.tracks.items[i].preview_url},\nalbum: ${data.tracks.items[i].album.name}`);
-            console.log(data.tracks.items[i].artists[0].name);
+            console.log(`Song name: ${data.tracks.items[i].name}\nPreview_url: ${data.tracks.items[i].preview_url},\nAlbum: ${data.tracks.items[i].album.name}`);
+            console.log("Artist: " + data.tracks.items[i].artists[0].name);
             console.log("\n-----------------------------------\n");
         }
 
