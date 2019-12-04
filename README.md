@@ -61,17 +61,17 @@ Output will look something like this on the terminal-
 
 ![image](https://user-images.githubusercontent.com/54960706/70172165-fb8c6e00-1684-11ea-8dd4-cca7fe40e0f4.png)
 
-2. If you want to run the spotify-this-song command, type in as follows in the terminal
+2. If you want to run the spotify-this-song command, type in the following in the terminal
 
 ```
 node liri.js spotify-this-song '<song name here>'
 ```
 What this will do is utilize the node-spotify-api package in order to retrieve song information from the Spotify API and it will show the following information about the song in your terminal/bash window
 
-Artist(s).
-The song's name.
-A preview link of the song from Spotify.
-The album that the song is from.
+* Artist(s).
+* The song's name.
+* A preview link of the song from Spotify.
+* The album that the song is from.
 
 If no song is provided by the user it will get information from Spotify API about "The Sign" by Ace of Base.
 
@@ -98,9 +98,60 @@ function song() {
     });
 }
 ```
-Output will look something like this on your terminal-
+Output should look something like this on your terminal/bash:
 
 ![image](https://user-images.githubusercontent.com/54960706/70175277-44dfbc00-168b-11ea-90a8-3efae6a5439d.png)
+
+3. If you want to run the movie-this command, type in the following in the terminal/bash:
+```
+node liri.js movie-this '<movie name here>'
+
+```
+What this will do is utilize the axios package to retrieve data from OMDB API and get the following information about the movie requested by the user:
+* Title of the movie.
+* Year the movie came out.
+* IMDB Rating of the movie.
+* Rotten Tomatoes Rating of the movie.
+* Country where the movie was produced.
+* Language of the movie.
+* Plot of the movie.
+* Actors in the movie.
+
+If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
+
+```
+function movie() {
+
+    if (topic === "") {
+        topic = "Mr.Nobody"
+    };
+    // We then run the request with axios module on a URL with a JSON
+    axios.get("http://www.omdbapi.com/?t=" + topic + "&y=&plot=short&apikey=trilogy").then(
+        function(response) {
+            console.log("***********Movie Info***********");
+
+            console.log("Title of the movie is: " + response.data.Title);
+            console.log("Year the movie came out is: " + response.data.Year);
+            console.log("The movie's rating on imdb is: " + response.data.imdbRating);
+            console.log("The rating of the movie on rotten tomatoes is: " + response.data.Ratings[1].Value);
+            console.log("Country where the movie was produced is: " + response.data.Country);
+            console.log("Language of the movie is: " + response.data.Language);
+            console.log("Plot of the movie is: " + response.data.Plot);
+            console.log("Actors in the movie are: " + response.data.Actors);
+
+        }
+    );
+
+
+}
+```
+Output should look like this on your bash/terminal:
+
+![image](https://user-images.githubusercontent.com/54960706/70176445-56c25e80-168d-11ea-9251-aff696bcb0c3.png)
+
+
+
+
 
 
 
