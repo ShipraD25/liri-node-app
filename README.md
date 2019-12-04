@@ -29,7 +29,9 @@ For example:
 node liri.js concert-this <artist/band name here>
 
 ```
-What this will do is search the Bands in Town Artist Events API for an artist and render the information about each event's venu name, venue location and date of the event to the terminal:
+What this will do is search the Bands in Town Artist Events API for an artist and render the information about each event's venu name, venue location and date of the event to the terminal.
+
+### Code Snippet
 
 ```
 function concert() {
@@ -75,6 +77,8 @@ What this will do is utilize the node-spotify-api package in order to retrieve s
 
 If no song is provided by the user it will get information from Spotify API about "The Sign" by Ace of Base.
 
+### Code Snippet
+
 ```
 function song() {
 
@@ -119,6 +123,8 @@ What this will do is utilize the axios package to retrieve data from OMDB API an
 
 If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
+### Code Snippet
+
 ```
 function movie() {
 
@@ -149,6 +155,29 @@ Output should look like this on your bash/terminal:
 
 ![image](https://user-images.githubusercontent.com/54960706/70176445-56c25e80-168d-11ea-9251-aff696bcb0c3.png)
 
+4. And lastly if the user wants to run do-what-it-says command,
+```
+node liri.js do-what-it-says
+```
+Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of the LIRI's commands.
+In this case it should spotify-this-song for "I want it That Way" as thats what the text is in the random.txt file.
+
+### Code Snippet
+
+```
+function dodefault() {
+    fs.readFile("random.txt", "utf8", function(err, info) {
+        console.log(info)
+        action = info.split(",")[0]
+        topic = info.split(",")[1]
+        actions()
+    })
+
+}
+```
+Out should look something like this: 
+
+![image](https://user-images.githubusercontent.com/54960706/70178459-2d0b3680-1691-11ea-8026-17cbaab437ec.png)
 
 
 
