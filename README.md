@@ -22,7 +22,10 @@ Commands that can be used are-
 3. Depending on whatever command you want to run after typing node and file name the output will vary.
 
 For example: if you want to run the concert-this command
+```
 node liri.js concert-this <artist/band name here>
+
+```
 
 
 
