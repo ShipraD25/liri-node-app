@@ -21,7 +21,10 @@ Commands that can be used are-
 
 3. Depending on whatever command you want to run after typing node and file name the output will vary.
 
-For example: if you want to run the concert-this command, type in as follows-
+For example: 
+1. If you want to run the concert-this command, type in as follows-
+
+
 ```
 node liri.js concert-this <artist/band name here>
 
@@ -57,6 +60,53 @@ function concert() {
 Output will look something like this on the terminal-
 
 ![image](https://user-images.githubusercontent.com/54960706/70172165-fb8c6e00-1684-11ea-8dd4-cca7fe40e0f4.png)
+
+2. If you want to run the spotify-this-song command, type in as follows in the terminal
+
+```
+node liri.js spotify-this-song '<song name here>'
+```
+What this will do is utilize the node-spotify-api package in order to retrieve song information from the Spotify API and it will show the following information about the song in your terminal/bash window
+
+Artist(s).
+The song's name.
+A preview link of the song from Spotify.
+The album that the song is from.
+
+If no song is provided by the user it will get information from Spotify API about "The Sign" by Ace of Base.
+
+```
+function song() {
+
+
+    var spotify = new Spotify(keys.spotify);
+    if (topic === "") {
+        topic = "The Sign by Ace of Base"
+    };
+
+    spotify.search({ type: 'track', query: topic }, function(err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+        for (var i = 0; i < data.tracks.items.length; i++) {
+
+            console.log(`Song name: ${data.tracks.items[i].name}\nurl: ${data.tracks.items[i].preview_url},\nAlbum: ${data.tracks.items[i].album.name},\nArtist: ${data.tracks.items[i].artists[0].name}`);
+            //console.log("Artist: " + data.tracks.items[i].artists[0].name);
+            console.log("\n-----------------------------------\n");
+        }
+
+    });
+}
+```
+Output will look something like this on your terminal-
+
+![image](https://user-images.githubusercontent.com/54960706/70175277-44dfbc00-168b-11ea-90a8-3efae6a5439d.png)
+
+
+
+
+
+
 
 
 

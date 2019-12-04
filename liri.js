@@ -82,8 +82,8 @@ function song() {
         }
         for (var i = 0; i < data.tracks.items.length; i++) {
 
-            console.log(`Song name: ${data.tracks.items[i].name}\nPreview_url: ${data.tracks.items[i].preview_url},\nAlbum: ${data.tracks.items[i].album.name}`);
-            console.log("Artist: " + data.tracks.items[i].artists[0].name);
+            console.log(`Song name: ${data.tracks.items[i].name}\nurl: ${data.tracks.items[i].preview_url},\nAlbum: ${data.tracks.items[i].album.name},\nArtist: ${data.tracks.items[i].artists[0].name}`);
+            //console.log("Artist: " + data.tracks.items[i].artists[0].name);
             console.log("\n-----------------------------------\n");
         }
 
