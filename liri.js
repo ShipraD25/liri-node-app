@@ -32,12 +32,9 @@ function actions() {
 
 
         case `do-what-it-says`:
-            dowhat();
+            dodefault();
             break;
 
-
-        default:
-            dodefault()
 
 
     }
@@ -54,13 +51,14 @@ function concert() {
             // handle success
             //console.log(response);
             for (var i = 0; i < response.data.length; i++) {
+
                 console.log(response.data[i].venue.name);
                 console.log(response.data[i].venue.city);
                 console.log(response.data[i].venue.country);
                 console.log(response.data[i].datetime);
-                console.log("---------------------------------")
-                    //  console.log(`At ${response.data[i].venue.name} in ${response.data[i].venue.city} - ${response.data[i].venue.country} in ${response.data[i].datetime}`)
-                    //  console.log("---------------------------------")
+                console.log("---------------------------------");
+                //  console.log(`At ${response.data[i].venue.name} in ${response.data[i].venue.city} - ${response.data[i].venue.country} in ${response.data[i].datetime}`)
+                //  console.log("---------------------------------")
             }
         })
         .catch(function(error) {
@@ -84,8 +82,10 @@ function song() {
             return console.log('Error occurred: ' + err);
         }
         for (var i = 0; i < data.tracks.items.length; i++) {
+
             console.log(`Song name: ${data.tracks.items[i].name}\nurl: ${data.tracks.items[i].preview_url},\nalbum: ${data.tracks.items[i].album.name}`);
-            console.log(data.tracks.items[i].artists[0].name)
+            console.log(data.tracks.items[i].artists[0].name);
+            console.log("\n-----------------------------------\n");
         }
 
     });
@@ -103,7 +103,7 @@ function movie() {
             console.log("The movie's rating on imdb is: " + response.data.imdbRating);
             console.log("Title of the movie is:" + response.data.Title);
             console.log("Year the movie came out is:" + response.data.Year);
-            console.log("The rating of the movie on rotten tomatoes is:" + response.data.Ratings.value);
+            console.log("The rating of the movie on rotten tomatoes is:" + response.data.Ratings[1].Value);
             console.log("Country where the movie was produced is:" + response.data.Country);
             console.log("Language of the movie is:" + response.data.Language);
             console.log("Plot of the movie is:" + response.data.Plot);
