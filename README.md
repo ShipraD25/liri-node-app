@@ -179,10 +179,6 @@ Output should look something like this:
 
 ![image](https://user-images.githubusercontent.com/54960706/70178459-2d0b3680-1691-11ea-8026-17cbaab437ec.png)
 
-gif 
-![image](https://user-images.githubusercontent.com/54960706/70182942-b4f53e80-1699-11ea-8afc-cd9a38acdbaa.png)
-
-
 
 
 
