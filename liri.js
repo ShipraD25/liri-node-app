@@ -44,7 +44,6 @@ function actions() {
 function concert() {
     var query = `https://rest.bandsintown.com/artists/${topic}/events?app_id=codingbootcamp`
 
-    // var query = "https://rest.bandsintown.com/artists/" + topic + "/events?app_id=codingbootcamp"
 
     // Make a request for a user with a given ID
     axios.get(query)
@@ -55,7 +54,6 @@ function concert() {
 
                 console.log("Name of the Venue: " + response.data[i].venue.name);
                 console.log("Location Of the Venue: " + response.data[i].venue.city);
-                // console.log(response.data[i].venue.country);
                 console.log("Date of the event: " + response.data[i].datetime);
                 console.log("---------------------------------");
                 //  console.log(`At ${response.data[i].venue.name} in ${response.data[i].venue.city} - ${response.data[i].venue.country} in ${response.data[i].datetime}`)
