@@ -5,12 +5,13 @@ var keys = require("./key.js");
 const axios = require('axios');
 var fs = require("fs");
 
+
 // get the info from the input (action, topic)
 
-console.log(process.argv)
+
 var action = process.argv[2];
 
-// get the topic or loop or slice  [1,2,3,4,5,6]  [4,5,6]  "4 5 6"
+// get the topic or loop or slice 
 var topic = process.argv.slice(3).join(" ");
 
 // based on the command you execute diferent api, solutions
@@ -100,14 +101,15 @@ function movie() {
     axios.get("http://www.omdbapi.com/?t=" + topic + "&y=&plot=short&apikey=trilogy").then(
         function(response) {
             console.log("***********Movie Info***********");
+
+            console.log("Title of the movie is: " + response.data.Title);
+            console.log("Year the movie came out is: " + response.data.Year);
             console.log("The movie's rating on imdb is: " + response.data.imdbRating);
-            console.log("Title of the movie is:" + response.data.Title);
-            console.log("Year the movie came out is:" + response.data.Year);
-            console.log("The rating of the movie on rotten tomatoes is:" + response.data.Ratings[1].Value);
-            console.log("Country where the movie was produced is:" + response.data.Country);
-            console.log("Language of the movie is:" + response.data.Language);
-            console.log("Plot of the movie is:" + response.data.Plot);
-            console.log("Actors in the movie are:" + response.data.Actors);
+            console.log("The rating of the movie on rotten tomatoes is: " + response.data.Ratings[1].Value);
+            console.log("Country where the movie was produced is: " + response.data.Country);
+            console.log("Language of the movie is: " + response.data.Language);
+            console.log("Plot of the movie is: " + response.data.Plot);
+            console.log("Actors in the movie are: " + response.data.Actors);
 
         }
     );
